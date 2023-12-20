@@ -11,9 +11,9 @@ console.log(sum(7,3))
 
 
 const fromEuroToDollar = function(valueInEuro) {
-    // Convertimos el valor a dólares
+    // Convert value to dollars
     let valueInDollar = valueInEuro * 1.07;
-    // Retornamos el valor en dólares
+    // Return value in dollars
     return valueInDollar;
 }
 
