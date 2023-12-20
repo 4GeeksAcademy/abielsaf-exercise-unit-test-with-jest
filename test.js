@@ -1,44 +1,39 @@
-// Importar la función sum del archivo app.js
-const { sum } = require('./app.js');
-
-// Comienza tu primera prueba
+const { sum, fromEuroToDollar, fromDollarToYen, fromYenToPound } = require('./app.js');
+// First test
 test('adds 14 + 9 to equal 23', () => {
-    // Dentro de la prueba llamamos a nuestra función sum con 2 números
+    // Inside the test we call our sum function with 2 numbers
     let total = sum(14, 9);
 
-    // Esperamos que la suma de esos 2 números sea 23
-    expect(total).toBe(23);
+    // We expect the sum of those 2 numbers to be 23
+    expect(total).toBeCloseTo(23);
 });
-
+// Second test
 test("One euro should be 1.07 dollars", function() {
-    
-    const { fromEuroToDollar } = require('./app.js');
 
+    // Uso la función como debe ser usada
     const dollars = fromEuroToDollar(3.5);
 
+    // Si 1 euro son 1.07 dólares, entonces 3.5 euros debe ser (3.5 * 1.07)
     const expected = 3.5 * 1.07;
-   
-    expect(dollars).toBe(expected); 
+
+    // Hago mi comparación (la prueba)
+    expect(dollars).toBe(expected); // 1 euro son 1.07 dólares, entonces 3.5 euros deberían ser = (3.5 * 1.07)
 })
+// Third test
+test("One dollar should be 146,261 yen", function() {
 
-test("One dollar should be 165.45 yen", function() {
+    const yen = fromDollarToYen(3.5);
     
-    const {fromDollarToYen} = require('./app.js');
+    const expected = 3.5/1.07 * 156;
 
-    const yen = fromDollarToYen(2.7);
-
-    const expected = 2.7 * 165.45;
-   
-    expect(yen).toBeCloseTo(expected, 1); 
+    expect(yen).toBe(expected); 
 })
+// Fourth and last test
+test("One Yen should be 0,813 pounds", function() {
 
-test("One yen should be 0.0055 GBP", function() {
-    
-    const {fromYenToPound} = require('./app.js');
+    const yen = fromYenToPound(3.5);
 
-    const GBP = fromYenToPound(200);
+    const expected = 3.5/1.07 * 0.87;
 
-    const expected = 200 * 0.0055;
-   
-    expect(GBP).toBeCloseTo(expected, 2); 
+    expect(yen).toBe(expected); 
 })

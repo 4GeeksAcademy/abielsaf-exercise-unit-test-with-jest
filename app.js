@@ -1,30 +1,29 @@
-let oneEuroIs = {
-    "JPY": 156.5, // japan yen
-    "USD": 1.07, // us dollar
-    "GBP": 0.87, // british pound
-}
-const fromEuroToDollar = function(valueInEuro) {
-    let valueInDollar = valueInEuro * 1.07;
-    return valueInDollar;
-}
-
-const fromDollarToYen = function(valueInDollar) {
-    let valueInYen = valueInDollar * 165.45;
-    return valueInYen;
-}
-
-const fromYenToPound = function(valueInYen) {
-    let valueInGBP = valueInYen * 0.0055;
-    return valueInGBP;
-}
-
-// Esta función suma dos numeros.
+// let oneEuroIs = {                  ----> Echange ratios.
+//     "JPY": 156.5, // japan yen
+//     "USD": 1.07, // us dollar
+//     "GBP": 0.87, // british pound
+// }
 const sum = (a,b) => {
     return a + b
 }
 
-// Solo un registro en consola para nosotros
 console.log(sum(7,3))
 
-// Tenemos que incluir la función en el exports para que sea exportada a otros archivos como test.js
+
+const fromEuroToDollar = function(valueInEuro) {
+    // Convertimos el valor a dólares
+    let valueInDollar = valueInEuro * 1.07;
+    // Retornamos el valor en dólares
+    return valueInDollar;
+}
+
+const fromDollarToYen = function(valueInDollar) {
+    let valueInYen = valueInDollar /1.07 * 156;
+    return valueInYen;
+}
+
+const fromYenToPound = function(valueInYen) {
+    let valueInPound = valueInYen /1.07 * 0.87;
+    return valueInPound;
+}
 module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYenToPound }
